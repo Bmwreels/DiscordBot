@@ -1,12 +1,15 @@
+import os
 import discord
 import asyncio
 import instaloader
 
 TOKEN = os.getenv("DISCORD_TOKEN")
 CHANNEL_ID = int(os.getenv("CHANNEL_ID"))
-INSTAGRAM_USERNAME = "https://www.instagram.com/bmw.reels.in/?igsh=c3FraDRmYnZvbnM%3D#"
+INSTAGRAM_USERNAME = os.getenv("INSTAGRAM_USERNAME")
 
-client = discord.Client(intents=discord.Intents.default())
+intents = discord.Intents.default()
+client = discord.Client(intents=intents)
+
 L = instaloader.Instaloader()
 posted_posts = set()
 
@@ -21,18 +24,17 @@ async def check_instagram():
             post_url = f"https://www.instagram.com/p/{latest_post.shortcode}/"
 
             if post_url not in posted_posts:
-                await channel.send(f"New Instagram post: {post_url}")
+                await channel.send(f"📸 New Instagram post!\n{post_url}")
                 posted_posts.add(post_url)
 
         except Exception as e:
-            print(f"Error: {e}")
+            print("Error:", e)
 
-        await asyncio.sleep(300)  # Check every 5 minutes
+        await asyncio.sleep(300)
 
 @client.event
 async def on_ready():
-    print(f'Logged in as {client.user}')
+    print(f"Logged in as {client.user}")
 
 client.loop.create_task(check_instagram())
-
 client.run(TOKEN)
