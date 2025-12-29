@@ -2,8 +2,8 @@ import discord
 import asyncio
 import instaloader
 
-TOKEN = "MTQ1NTExMjQwNDc2NDQ1OTE4Mg.GrjCHB.J8ecqfxYNd5GdCmDwr45hKaFJxsoLKuSf11nCE"
-CHANNEL_ID = 1455098000987652107
+TOKEN = os.getenv("DISCORD_TOKEN")
+CHANNEL_ID = int(os.getenv("CHANNEL_ID"))
 INSTAGRAM_USERNAME = "https://www.instagram.com/bmw.reels.in/?igsh=c3FraDRmYnZvbnM%3D#"
 
 client = discord.Client(intents=discord.Intents.default())
@@ -34,4 +34,5 @@ async def on_ready():
     print(f'Logged in as {client.user}')
 
 client.loop.create_task(check_instagram())
+
 client.run(TOKEN)
