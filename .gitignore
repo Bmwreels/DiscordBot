@@ -17,6 +17,6 @@ bot.py  # If your token is inside bot.py, otherwise create a separate config fil
 
 .DS_Store
 .env
-DISCORD_TOKEN = MTQ1NTExMjQwNDc2NDQ1OTE4Mg.GVBjqM._2Wf4T-8rfhULyztN6Pm7PLRxKxs2xqEe3TCb4
+DISCORD_TOKEN = MTQ1NTExMjQwNDc2NDQ1OTE4Mg.GMt6ax.bn0wb7q0aSeNrtIO1RgGtQcllsDcirTtA0xwkY
 CHANNEL_ID = 1455098000987652107
-INSTAGRAM_USERNAME = https://www.instagram.com/bmw.reels.in/?igsh=c3FraDRmYnZvbnM%3D#
+INSTAGRAM_USERNAME = bmw.reels.in
