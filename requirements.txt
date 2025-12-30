@@ -1,2 +1,2 @@
-discord.py==2.6.0
-instaloader==4.12.0
+discord.py
+instaloader
